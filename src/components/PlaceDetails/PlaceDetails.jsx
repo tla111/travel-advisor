@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, Button, Card, CardMedia, CardContent, CardActions, Chip } from '@material-ui/core';
-import LocationOnOutlined from "@material-ui/icons/LocationOn";
+import LocationOnIcon from "@material-ui/icons/LocationOn";
 import PhoneIcon from "@material-ui/icons/Phone";
 import Rating from '@material-ui/lab/Rating';
 
@@ -36,6 +36,11 @@ const PlaceDetails = ({ place }) => {
                 {place?.cuisine?.map(({ name }) => (
                     <Chip key={name} size="small" label={name} className={classes.chip} />
                 ))}
+                {place?.address && (
+                    <Typography gutterBottom variant="body2" color="textSecondary" className={classes.subtitle}>
+                        <LocationOnIcon /> {place.address}
+                    </Typography>
+                )}
             </CardContent>
 
         </Card>
